@@ -2,34 +2,39 @@
 Yeu cau nguoi dung nhap tung phan tu trong mang va in ra man hinh theo ma tran*/
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
-    int n;
-
-    printf("Input the number of elements in array: ");
-    scanf("%d", &n);
-
-    int *arr = (int*)malloc(n * sizeof(int));
-    if (arr == NULL) {
-        printf("Invalid!!!\n");
-        return 1;
-    }
-
+    int rows, cols;
+    printf("Input rows: ");
+    scanf("%d", &rows); 
+    printf("Input cols: ");
+    scanf("%d", &cols); 
+    
+    int num1[rows][cols];  
+    
+    printf("Input elements of array:\n");
+    
     int i = 0;
-    while (i < n) {
-        printf("%d: ", i + 1);
-        scanf("%d", &arr[i]);
+    while (i < rows) {
+        int j = 0;
+        while (j < cols) {
+            printf("Element [%d][%d]: ", i + 1, j + 1);
+            scanf("%d", &num1[i][j]);
+            j++;
+        }
         i++;
     }
-
-    printf("The elements of array are: ");
-    i = 0;
-    while (i < n) {
-        printf("%d ", arr[i]);
+    printf("Array entered:\n");
+    i = 0;  
+    while (i < rows) {
+        int j = 0;
+        while (j < cols) {
+            printf("%d ", num1[i][j]);
+            j++;
+        }
+        printf("\n");
         i++;
     }
-
-    free(arr);
+    
     return 0;
 }
